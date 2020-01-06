@@ -79,10 +79,8 @@ class WinnerCheckerManager implements WinnerCheckerInterface
         $rows = $this->checkRows($board, $player);
         $columns = $this->checkColumns($board, $player);
         $diagonals = $this->checkDiagonals($board, $player);
-        if ($rows || $columns || $diagonals) {
-            return true;
-        }
-        return false;
+        $winner = ($rows || $columns || $diagonals) ? true : false;
+        return $winner;
     }
 
     /**
